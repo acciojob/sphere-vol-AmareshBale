@@ -3,17 +3,15 @@ function volume_sphere() {
 	let radius = parseFloat(document.getElementById("radius").value);
 
 	if(isNaN(radius) || radius<0) {
-		alert("radius must be not a negative Number");
 		return false;
 	}
 
 	let volume = (4/3)*Math.PI*Math.pow(radius,3);
-	document.getElementById("volume").value = volume.toFixed(2);
+	volume = Math.round(volume * 100) / 100;
+	document.getElementById("volume").value = volume.toFixed();
 	return false;
 	
   
 } 
 
-window.onload = function() {
-    document.getElementById('MyForm').onsubmit = volume_sphere;
-};
+window.onload = document.getElementById('MyForm').onsubmit = volume_sphere;
